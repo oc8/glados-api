@@ -1,12 +1,17 @@
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 current_dir := $(patsubst %/,%,$(dir $(mkfile_path)))
 
+start:
+	@make build
+	@make run
+	@make db_upgrade
+	@make logs
+
 build:
 	docker-compose build server
 
 run:
 	docker-compose up -d
-	@make db_upgrade
 
 logs:
 	docker-compose logs -f server

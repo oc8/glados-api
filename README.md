@@ -28,6 +28,11 @@ The `coverage` is the percentage of code covered by all the tests in the applica
 
 Every new endpoints, services, providers should be unit tested.
 
+### Fast run
+```
+make start
+```
+
 ### Run tests
 You can easily run all pytests using :
 ```
