@@ -25,3 +25,13 @@ class Entity(db.Model, BaseModel):
 
     # Relationships
     room = db.relationship("Room", foreign_keys=[room_id], back_populates="entities")
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def save(self, commit=True):
+        db.session.add(self)
+        if commit:
+            db.session.commit()
+        return self

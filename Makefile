@@ -6,6 +6,7 @@ build:
 
 run:
 	docker-compose up -d
+	@make db_upgrade
 
 logs:
 	docker-compose logs -f server
